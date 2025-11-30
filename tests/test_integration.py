@@ -1,4 +1,4 @@
-import pytest
+
 from pyvat_with_checksums import check_vat, VatCheckResult
 
 def test_public_api_check_vat():

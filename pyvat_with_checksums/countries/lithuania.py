@@ -48,8 +48,8 @@ def _double_check_calculation_12(vat: str, total: int, multipliers_alt: List[int
     result = total
     if total % 11 == 10:
         result = 0
-        for l in range(11):
-            result += _extract_digit(vat, multipliers_alt, l)
+        for idx in range(11):
+            result += _extract_digit(vat, multipliers_alt, idx)
     return result
 
 def _check_12_digit_vat(vat: str, multipliers_med: List[int], multipliers_alt: List[int]) -> bool:

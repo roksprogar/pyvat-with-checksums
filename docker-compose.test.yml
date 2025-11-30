@@ -4,7 +4,5 @@ services:
       context: .
       dockerfile: Dockerfile.test
     volumes:
-      - .:/app
-    environment:
-      - PYTHONPATH=.
-    command: pytest
+      - ./pyvat_with_checksums:/app/pyvat_with_checksums
+      - ./tests:/app/tests

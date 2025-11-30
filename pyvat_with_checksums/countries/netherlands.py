@@ -2,8 +2,10 @@ import re
 from ..core import Country
 
 def get_char_value(char: str) -> int:
-    if char == '+': return 36
-    if char == '*': return 37
+    if char == '+':
+        return 36
+    if char == '*':
+        return 37
     
     code = ord(char) - 55
     if 9 < code < 91:

@@ -1,5 +1,4 @@
-import pytest
-from pyvat_with_checksums.core import check_vat, VatCheckResult
+from pyvat_with_checksums.core import check_vat
 
 def test_check_vat_invalid_country():
     result = check_vat('XX123456')

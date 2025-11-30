@@ -3,7 +3,7 @@ from typing import List
 from ..core import Country
 
 def generate_check_sums(numbers: List[int], validators: List[int]) -> List[int]:
-    initial_check_sums = [0, 0]
+
     checker_a = 0
     checker_b = 0
     
