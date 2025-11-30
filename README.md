@@ -80,3 +80,17 @@ To run linting checks:
 ```bash
 make lint
 ```
+
+### Pre-commit Hooks
+
+To automatically run checks before every commit, install the pre-commit hooks:
+
+```bash
+uv run pre-commit install
+```
+
+You can also run the hooks manually against all files:
+
+```bash
+uv run pre-commit run --all-files
+```
