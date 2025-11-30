@@ -1,20 +1,77 @@
 import pytest
 from pyvat_with_checksums.core import check_vat
 
-VALID_VATS = ['EL000000024', 'EL000000036', 'EL000000048', 'EL000000208', 'EL000000061', 'EL000000073', 'EL000000085', 'EL000000104', 'EL000000116', 'EL000000128', 'EL000000141', 'EL000000153', 'EL000000165', 'EL000000189', 'EL000000190', 'EL000000208', 'EL022188887', 'EL055679750', 'EL059644936', 'EL073313955', 'EL090049627', 'EL090077522', 'EL090101655', 'EL094012834', 'EL094056437', 'EL094112730', 'EL094173630', 'EL094237076', 'EL094249481', 'EL094253457', 'EL094313643', 'EL094322222', 'EL094368710', 'EL094403384', 'EL095617741', 'EL098002010', 'EL098062736', 'EL099370743', 'EL099785242', 'EL800420948', 'EL997671771', 'EL997786906', 'EL998075960', 'EL998180212', 'EL998789236', 'EL998920231']
+VALID_VATS = [
+    "EL000000024",
+    "EL000000036",
+    "EL000000048",
+    "EL000000208",
+    "EL000000061",
+    "EL000000073",
+    "EL000000085",
+    "EL000000104",
+    "EL000000116",
+    "EL000000128",
+    "EL000000141",
+    "EL000000153",
+    "EL000000165",
+    "EL000000189",
+    "EL000000190",
+    "EL000000208",
+    "EL022188887",
+    "EL055679750",
+    "EL059644936",
+    "EL073313955",
+    "EL090049627",
+    "EL090077522",
+    "EL090101655",
+    "EL094012834",
+    "EL094056437",
+    "EL094112730",
+    "EL094173630",
+    "EL094237076",
+    "EL094249481",
+    "EL094253457",
+    "EL094313643",
+    "EL094322222",
+    "EL094368710",
+    "EL094403384",
+    "EL095617741",
+    "EL098002010",
+    "EL098062736",
+    "EL099370743",
+    "EL099785242",
+    "EL800420948",
+    "EL997671771",
+    "EL997786906",
+    "EL998075960",
+    "EL998180212",
+    "EL998789236",
+    "EL998920231",
+]
 
-INVALID_VATS = ['EL000000022', 'EL000000032', 'EL000000042', 'EL000000202', 'EL000000062', 'EL000000072', 'EL000000082']
+INVALID_VATS = [
+    "EL000000022",
+    "EL000000032",
+    "EL000000042",
+    "EL000000202",
+    "EL000000062",
+    "EL000000072",
+    "EL000000082",
+]
+
 
 @pytest.mark.parametrize("vat", VALID_VATS)
 def test_greece_valid(vat):
     result = check_vat(vat)
     assert result.is_valid, f"Expected {vat} to be valid for Greece"
-    assert result.country.name == 'Greece'
+    assert result.country.name == "Greece"
+
 
 @pytest.mark.parametrize("vat", INVALID_VATS)
 def test_greece_invalid(vat):
     result = check_vat(vat)
-    # Some invalid VATs might match the format but fail the check digit, 
-    # or fail the format entirely. 
+    # Some invalid VATs might match the format but fail the check digit,
+    # or fail the format entirely.
     # But result.is_valid should definitely be False.
     assert not result.is_valid, f"Expected {vat} to be invalid for Greece"

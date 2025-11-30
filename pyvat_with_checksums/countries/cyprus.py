@@ -1,6 +1,7 @@
 import re
 from ..core import Country
 
+
 def extract_and_multiply_by_counter(vat: str, total: int) -> int:
     result = total
     for i in range(8):
@@ -21,22 +22,22 @@ def extract_and_multiply_by_counter(vat: str, total: int) -> int:
         result += temp
     return result
 
+
 def calc_cyprus(vat: str) -> bool:
     if int(vat[:2]) == 12:
         return False
-        
+
     total = extract_and_multiply_by_counter(vat, 0)
     total = total % 26
     total_char = chr(total + 65)
-    
+
     expect = vat[8]
     return total_char == expect
 
+
 cyprus = Country(
-    name='Cyprus',
-    codes=['CY', 'CYP', '196'],
+    name="Cyprus",
+    codes=["CY", "CYP", "196"],
     calc_fn=calc_cyprus,
-    rules={
-        'regex': [re.compile(r'^(CY)([0-59]\d{7}[A-Z])$')]
-    }
+    rules={"regex": [re.compile(r"^(CY)([0-59]\d{7}[A-Z])$")]},
 )
