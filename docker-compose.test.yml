@@ -1,0 +1,10 @@
+services:
+  app-test:
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    volumes:
+      - .:/app
+    environment:
+      - PYTHONPATH=.
+    command: pytest
